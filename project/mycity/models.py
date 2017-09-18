@@ -1,10 +1,5 @@
 from django.db import models
 
-class City(models.Model):
-	city_name = models.CharField(max_length=40)
-	city_id = models.IntegerField(default=1)
-	def __str__(self):
-	    return self.city_name
 
 class User(models.Model):
 	user_id= models.IntegerField(default=1)
@@ -95,7 +90,7 @@ class Hotels(models.Model):
 	email= models.CharField(max_length=60)
 	def __str__(self):
 	    return self.hotel_name, self.city, self.phone_number, self.address, self.email
-		
+
 class Museums(models.Model):
 	museum_id = models.IntegerField(default=1)
 	museum_name = models.CharField()
