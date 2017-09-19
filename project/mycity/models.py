@@ -1,103 +1,133 @@
 from django.db import models
 
 class User(models.Model):
-	user_id= models.IntegerField(default=1)
+	user_id= models.AutoField(primary_key=True)
+	username= models.CharField(max_length=20)
+	user_firstname =  models.CharField(max_length=20, blank=True, null=True)
+	user_lastname = models.CharField(max_length=20, blank=True, null=True)
 	user_type = models.CharField(max_length=20)
 	home_city = models.IntegerField(default=1)
-	email = models.CharField(max_length=300)
-	password = models.CharField(max_length=50)
-
+	email = models.CharField(max_length=300, blank=True, null=True)
+	password = models.CharField(max_length=50)	
+	def __str__(self):
+		return self.username
+		
 class UserType(models.Model):
-	type_id = models.IntegerField(default=1)
+	type_id = models.AutoField(primary_key=True)
 	type_desc = models.CharField(max_length=30)
+	def __str__(self):
+		return self.type_desc
 
 class Weather(models.Model):
-	weather_id = models.IntegerField(default=1)
+	weather_id = models.AutoField(primary_key=True)
 	weather = models.CharField(max_length=50)
+	def __str__(self):
+		return self.weather
 
 class Cities(models.Model):
-	city_id = models.IntegerField(default=1)
+	city_id = models.AutoField(primary_key=True)
 	title = models.CharField(max_length=100)
 	weather = models.ForeignKey(Weather)
+	def __str__(self):
+		return self.title
 
 class Libraries(models.Model):
-	library_id = models.IntegerField(default=1)
+	library_id = models.AutoField(primary_key=True)
 	city = models.ForeignKey(Cities)
 	library_name = models.CharField(max_length=100)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email = models.CharField(max_length=60)
+	def __str__(self):
+		return self.library_name
 
 
 class Colleges(models.Model):
-	college_id = models.IntegerField(default=1)
+	college_id = models.AutoField(primary_key=True)
 	city = models.ForeignKey(Cities)
 	college_name = models.CharField(max_length=100)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
+	def __str__(self):
+		return self.college_name
 
 
 class Departments(models.Model):
-	department_id = models.IntegerField(default=1)
+	department_id = models.AutoField(primary_key=True)
 	description = models.CharField(max_length=10)
 	college = models.ForeignKey(Colleges)
+	def __str__(self):
+		return self.description
 
 class Industries(models.Model):
-	industry_id = models.IntegerField(default=1)
+	industry_id = models.AutoField(primary_key=True)
 	city = models.ForeignKey(Cities)
-	college = models.ForeignKey(Colleges)
+	name = models.CharField(max_length=40)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
+	def __str__(self):
+		return self.name
 
 class IndustryType(models.Model):
-	type_id = models.IntegerField(default=1)
+	type_id = models.AutoField(primary_key=True)
 	description = models.CharField(max_length=100)
-	Industry = models.ForeignKey(Industries)
 
+	def __str__(self):
+		return self.description
 class Parks(models.Model):
-	park_id = models.IntegerField(default=1)
+	park_id = models.AutoField(primary_key=True)
 	park_name = models.CharField(max_length=100)
 	city = models.ForeignKey(Cities)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email= models.CharField(max_length=60)
+	def __str__(self):
+		return self.park_name
 
 class Hotels(models.Model):
-	hotel_id = models.IntegerField(default=1)
+	hotel_id = models.AutoField(primary_key=True)
 	hotel_name = models.CharField(max_length=100)
 	city = models.ForeignKey(Cities)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email= models.CharField(max_length=60)
-
+	def __str__(self):
+		return self.hotel_name
 class Museums(models.Model):
-	museum_id = models.IntegerField(default=1)
+	museum_id = models.AutoField(primary_key=True)
 	museum_name = models.CharField(max_length=100)
 	city = models.ForeignKey(Cities)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email= models.CharField(max_length=60)
-
+	def __str__(self):
+		return self.museum_name
 class Zoos(models.Model):
-	zoo_id = models.IntegerField(default=1)
+	zoo_id = models.AutoField(primary_key=True)
 	zoo_name = models.CharField(max_length=100)
 	city = models.ForeignKey(Cities)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email= models.CharField(max_length=60)
+	def __str__(self):
+		return self.zoo_name
 
 class Malls(models.Model):
-	mall_id = models.IntegerField(default=1)
+	mall_id = models.AutoField(primary_key=True)
 	mall_name = models.CharField(max_length=100)
 	city = models.ForeignKey(Cities)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email= models.CharField(max_length=60)
+	def __str__(self):
+		return self.mall_name
 
 class Restaurants(models.Model):
-	restaurant_id = models.IntegerField(default=1)
+	restaurant_id = models.AutoField(primary_key=True)
 	restaurant_name = models.CharField(max_length=100)
 	city = models.ForeignKey(Cities)
 	phone_number = models.CharField(max_length=10)
 	address = models.CharField(max_length=300)
 	email= models.CharField(max_length=60)
+	def __str__(self):
+		return self.restaurant_name
