@@ -1,0 +1,11 @@
+SQL
+Class diagram
+
+SQL 
+registration page  - Owen
+list for elements  SELECT * from TABLE WHERE blah
+Jay
+sort function/filter function  CREATE VIEW + SORT BY / WHERE
+Tyler
+remove/edit DELETE X from TABLE WHERE
+Jin-ho
