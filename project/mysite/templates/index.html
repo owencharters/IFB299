@@ -1,0 +1,11 @@
+<head>
+<title>Django Templates Tutorial</title>
+</head>
+<body>
+<h1>My City</h1>
+<ul>
+{% for cities in cities_all %}
+<li>{{ cities.title }}</li>
+{% endfor %}
+</ul>
+</body>
