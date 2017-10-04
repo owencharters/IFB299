@@ -4,7 +4,7 @@ from django.template import loader
 from .models import Cities
 from .models import UserType
 from .models import User
-from .forms import UserForm
+from .forms import *
 from django.core.urlresolvers import reverse
 
 def index(request):
@@ -24,3 +24,15 @@ def register(request):
         form = UserForm()
 
     return render(request, 'register.html', {'form': form})
+
+def model_form_upload(request):
+	if request.method == 'POST':
+		form = DocumentForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('home')
+	else:
+		form = DocumentForm()
+	return render(request, 'model_form_upload.html', {
+		'form': form
+		})

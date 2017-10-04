@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^mycity/', include('mycity.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^register/', views.register, name='register'),
+    url(r'^mapupload/', views.model_form_upload, name='mapupload'),
 ]
 
