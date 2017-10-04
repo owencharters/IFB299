@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.template import loader
 from .models import Cities
 from .models import UserType
@@ -7,10 +7,12 @@ from .models import User
 from .forms import *
 from django.core.urlresolvers import reverse
 
+
 def index(request):
     cities_all = Cities.objects.order_by('-title')[:5]
     template = loader.get_template('index.html')
     return render(request, 'index.html')
+
 
 def register(request):
     template = loader.get_template('register.html')
