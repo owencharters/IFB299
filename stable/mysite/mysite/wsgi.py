@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 import os
 import sys
 from django.core.wsgi import get_wsgi_application
-sys.path.insert(0,'C:/Users/n8962375/Desktop/IFB299-development/IFB299-development/project/mysite/mycity')
+sys.path.insert(0,'..')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
 application = get_wsgi_application()

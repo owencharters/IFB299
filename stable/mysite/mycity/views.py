@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from mycity import views
 from .models import Cities
 from .models import UserType
 from .models import User
