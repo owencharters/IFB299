@@ -6,6 +6,7 @@ from .models import UserType
 from .models import User
 from .forms import *
 from django.core.urlresolvers import reverse
+from django.contrib import messages
 
 
 def index(request):
@@ -32,7 +33,8 @@ def model_form_upload(request):
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-			return redirect('home')
+#			return HttpResponseRedirect('/index/')
+			messages.add_message(request, messages.SUCCESS, 'File Uploaded Successfully')
 	else:
 		form = DocumentForm()
 	return render(request, 'model_form_upload.html', {

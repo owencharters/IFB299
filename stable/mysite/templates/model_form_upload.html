@@ -5,5 +5,16 @@
     <button type="submit">Upload</button>
   </form>
 
-  <p><a href="{% url 'index' %}">Return to home</a></p>
+  <p><a href="{% url 'index' %}">Return to home</a></p>\
+
+ 	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+	        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success: {% endif %}
+	        {{ message }}
+	    </li>
+	    {% endfor %}
+	</ul>
+	{% endif %}
 {% endblock %}
