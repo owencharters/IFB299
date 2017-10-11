@@ -1,0 +1,19 @@
+SPRINT 2 DEVELOPMENT
+JavaScript validation Registration / Upload page / Admin account creation - Owen / Jay
+CSS - Jinho/ Tyler Unified, use appropriate div ids on views
+Build the views - DJANGO/HTML A few pages each
+
+TESTING
+Selenium
+Acceptance Testing document - Aidan
+Regression Testing 
+Boundaries Testing - Owen / Jay
+Django unit tests - Tyler / Jinho
+
+
+Username
+18 chars
+A-Z 1-10 ! 1 Capital
+
+FRONT END JS/ REGEX
+Models
