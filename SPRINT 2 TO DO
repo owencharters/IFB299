@@ -1,6 +1,6 @@
 SPRINT 2 DEVELOPMENT
 
-CSS - Jinho/ Tyler Unified, use appropriate div ids on views  || Ref: https://tutorial.djangogirls.org/en/css/
+CSS - Jinho/ Tyler Unified, use appropriate div ids on views
 Build the views - DJANGO/HTML A few pages each
 
 TESTING
@@ -17,3 +17,15 @@ A-Z 1-10 ! 1 Capital
 
 FRONT END JS/ REGEX
 Models
+
+
+VALID ARTEFACTS
+
+Developed the test data for the database tables based on the client feedback
+Developed SQL queries to generate reports   
+Produced the automated build and deployment script 
+Implementation of a module - a vertical slice of the site, which includes creation, update and deletion operations (CRUD) 
+Designed User Interfaces incorporating the user requirements 
+Refined the acceptance criteria of the following … stories into full user tests 
+Requirements provided by the client were ambitious and lacked enough descriptions. I held meeting with the clients and produced a better version 
+Commenting
