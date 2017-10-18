@@ -4,14 +4,14 @@
 <body>
 
 <style>
-body { 
-	background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg); 
-	background-size: cover;	
+body {
+	background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+	background-size: cover;
 	background-repeat: no-repeat
 }
 </style>
 
-<h1>Brisbane</h1>
+<center><h1>Brisbane</h1>
 <ul>
 {% for cities in cities_all %}
 <li>{{ cities.title }}</li>
@@ -28,3 +28,4 @@ body {
 </form>
 </body>
 <a href="{% url 'register' %}"> New user?</a>
+<a href="{% url 'administratorPage' %}"> Go To Adminstrator</a>
