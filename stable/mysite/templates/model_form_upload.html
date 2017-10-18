@@ -1,10 +1,4 @@
 {% block content %}
-    <h1>Map Upload</h1>
-    <style>
-	body {
-		background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
-	}
-    </style>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
