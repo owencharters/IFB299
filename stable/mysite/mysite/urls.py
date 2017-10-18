@@ -4,11 +4,11 @@ from django.contrib.auth import views as auth_views
 from mycity import views
 urlpatterns = [
     url(r'^index/', views.index, name='index'),
-    url(r'^login/$', auth_views.login, {'template_name': 'Templates/index.html'}, name='login'),
     url(r'^mycity/', include('mycity.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^register/', views.register, name='register'),
     url(r'^mapupload/', views.model_form_upload, name='mapupload'),
-    url(r'^administrator/', views.administratorPage, name='administratorPage'),
-    url(r'^registerForAdmin/', views.registerForAdmin, name='registerForAdmin'),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, {'next_page': 'index'}, name='logout'),
 ]
+
