@@ -40,3 +40,21 @@ def model_form_upload(request):
 	return render(request, 'model_form_upload.html', {
 		'form': form
 		})
+
+def administratorPage(request):
+    cities_all = Cities.objects.order_by('-title')[:5]
+    template = loader.get_template('administratorPage.html')
+    return render(request, 'administratorPage.html')
+
+def registerForAdmin(request):
+    template = loader.get_template('registerForAdmin.html')
+    user_type_all = UserType.objects.order_by('-type_desc')
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return HttpResponseRedirect('/administratorPage/')
+    else:
+        form = UserForm()
+
+    return render(request, 'registerForAdmin.html', {'form': form})

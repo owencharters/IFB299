@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^register/', views.register, name='register'),
     url(r'^mapupload/', views.model_form_upload, name='mapupload'),
+    url(r'^administrator/', views.administratorPage, name='administratorPage'),
+    url(r'^registerForAdmin/', views.registerForAdmin, name='registerForAdmin'),
 ]
-
