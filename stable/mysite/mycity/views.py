@@ -40,3 +40,8 @@ def model_form_upload(request):
 	return render(request, 'model_form_upload.html', {
 		'form': form
 		})
+
+def administratorPage(request):
+    cities_all = Cities.objects.order_by('-title')[:5]
+    template = loader.get_template('administratorPage.html')
+    return render(request, 'administratorPage.html')

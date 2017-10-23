@@ -1,19 +1,5 @@
-<head>
-<title>City Smart Guys</title>
-<style>
-    body {
-        background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
-        background-size: cover;
-        background-repeat: no-repeat
-    }
-</style>
-</head>
-<body>
-{% block content %}
-    {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <button value="logout" ><a href="{% url 'logout' %}">logout</a></button>
-    {% else %}
+{% extends 'base.html' %}
+
         <h1>Smart City</h1>
             <form method="post" action = '{% url "login" %}'>
                 {% csrf_token %}
@@ -24,7 +10,5 @@
                 <button type="submit">Login</button>
             </form>
         <a href="{% url 'register' %}"> New user?</a>
-    {% endif %}
-{% endblock %}
-</body>
 
+</body>
