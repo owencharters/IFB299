@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    body {
+        background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+     }
+     #main_container{
+        width: 100%;
+        display: inline-flex;
+        margin-top: 50px;
+     }
+     #top_nav {
+        background-color: #333;
+        width: 450px;
+        margin: 50px auto 0px auto;
+        overflow: hidden;
+        box-shadow: 8px 8px grey;
+     }
+     #top_nav a{
+        float: left;
+        width: 116px;
+        border: 1px solid gray;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+     }
+     #top_nav a:hover{
+        background-color: #ddd;
+        color: black;
+     }
+     #side_nav{
+        width:17%;
+        overflow-x: hidden;
+        padding-top: 60px;
+        margin: 0 auto 0 auto;
+     }
+     #side_nav a{
+        width: 70%;
+        background-color: black;
+        padding: 8px 8px 8px 20px;
+        text-decoration: none;
+        font-size: 17px;
+        color: #f2f2f2;
+        display: block;
+        margin: 15px auto;
+        box-shadow: 8px 8px grey;
+     }
+     #side_nav a:hover{
+        background-color: #ddd;
+        color: black;
+     }
+     #detail_container{
+        width:15%;
+        height: 500px;
+        margin: 0 auto 0 auto;
+        border: 3px solid black;
+     }
+     #map_container{
+        width: 58%;
+        border: 2px solid black;
+        margin: 0 auto 0 auto;
+        text-align: center;
+     }
+
+
+</style>
+</head>
+<body>
+    <span> Hi {{ user.username }}!</span>
+    <a href="{% url 'logout' %}">logout</a>
+    <center><h2>Smart City Project</h2></center>
+    <div id="top_nav">
+        <a href="#">Type 1</a>
+        <a href="#">Type 2</a>
+        <a href="#">Type 3</a>
+    </div>
+    <div id="main_container">
+        <div id="detail_container">
+            <p>Can be used to list information about city information</p>
+        </div>
+
+        <div id="map_container">
+            <p> Map Here</p>
+        </div>
+
+        <div id="side_nav">
+            <a href="#">Hotels</a>
+            <a href="#">City Information</a>
+            <a href="#">Transport</a>
+            <a href="#">Other Cities</a>
+            <a href="#">Weather</a>
+            <a href="#">Medical Services</a>
+            <a href="#">Travel Services</a>
+        </div>
+    </div>
+</body>
+</html>
