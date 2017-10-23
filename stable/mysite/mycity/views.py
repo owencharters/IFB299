@@ -31,6 +31,12 @@ def register(request):
 
     return render(request, 'register.html', {'form': form})
 
+
+def summary(request):
+    template = loader.get_template('summary.html')
+    return render(request, 'summary.html')
+
+
 def model_form_upload(request):
 	if request.method == 'POST':
 		form = DocumentForm(request.POST, request.FILES)
