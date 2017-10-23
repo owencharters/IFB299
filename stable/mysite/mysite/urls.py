@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 from mycity import views
 from django.views.generic.base import TemplateView
 
+
 urlpatterns = [
     url(r'^index/', views.index, name='index'),
     url(r'^mycity/', include('mycity.urls')),
@@ -14,5 +15,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logout.html'}, name='logout'),
     url(r'^logout/$', auth_views.logout, {'next_page': 'index.html'}, name='logout'),
     url(r'^administratorPage/', views.register, name='administratorPage'),
+    url(r'^signup/', views.signup, name='signup'),
 
 ]

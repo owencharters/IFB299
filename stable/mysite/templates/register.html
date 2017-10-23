@@ -1,7 +1,27 @@
-<title>Register</title><h1>Join to see more!</h1>
-<form action="{% url "register" %}"register" method="POST">
-{%csrf_token%}
-{{form}}
-<input type="submit" value="Submit" />
-</form>
+<style>
+  body {
+      background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+      background-size: cover;
+      background-repeat: no-repeat
+    }
+  </style>
 
+<center><title>Register</title><h1>Join to see more!</h1></center>
+<center>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <p>
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+        <small style="color: grey">{{ field.help_text }}</small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+    </p>
+  {% endfor %}
+  <button type="submit">Sign up</button>
+</form>
+</center>
