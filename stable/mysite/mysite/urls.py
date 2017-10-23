@@ -16,5 +16,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'index.html'}, name='logout'),
     url(r'^administratorPage/', views.register, name='administratorPage'),
     url(r'^signup/', views.signup, name='signup'),
+    url(r'^summary/?', views.summary, name ='summary'),
 
 ]
