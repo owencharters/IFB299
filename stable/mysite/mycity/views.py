@@ -9,6 +9,8 @@ from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
+from django.conf import settings
+
 
 
 @login_required
@@ -42,7 +44,6 @@ def model_form_upload(request):
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
-#			return HttpResponseRedirect('/index/')
 			messages.add_message(request, messages.SUCCESS, 'File Uploaded Successfully')
 	else:
 		form = DocumentForm()
