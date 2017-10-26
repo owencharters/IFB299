@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+
+
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+    <span> Hi {{ user.username }}!</span>
+    <a href="{% url 'logout' %}">logout</a>
+    <center><h2>Smart City Project</h2></center>
+    <div id="top_nav">
+        <a href="#">Type 1</a>
+        <a href="#">Type 2</a>
+        <a href="#">Type 3</a>
+    </div>
+    <div id="main_container">
+        <div id="detail_container">
+            <p>Can be used to list information about city information</p>
+        </div>
+
+        <div id="map_container">
+            <img src="{{ MEDIA_URL }}mapimage.png" width="100%">
+        </div>
+
+        <div id="side_nav">
+            <a href="#">Hotels</a>
+            <a href="#">City Information</a>
+            <a href="#">Transport</a>
+            <a href="#">Other Cities</a>
+            <a href="#">Weather</a>
+            <a href="#">Medical Services</a>
+            <a href="#">Travel Services</a>
+        </div>
+    </div>
+</body>
+</html>
