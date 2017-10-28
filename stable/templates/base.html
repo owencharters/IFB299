@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+        background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+        background-size: cover;
+        background-repeat: no-repeat
+      }
+    </style>
+</head>
+
+<body><center>
+  <header>
+    <h1>Smart City</h1>
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+          <form method="post" action = '{% url "login" %}'>
+              {% csrf_token %}
+              <label for='id_username'> Username: </label>
+              <input type='text' name='username' autofocus maxlength="254" required id='id_username'>
+              <label for='id_password'>Password: </label>
+              <input type='password' name='password' required id='id_password'>
+              <button type="submit"><a href="{% url 'login' %}"></a>Login</button>
+          </form>
+      <a href="{% url 'register' %}">signup</a>
+    {% endif %}
+  </header>
+
+</body></center>
+</html>
