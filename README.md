@@ -2,6 +2,10 @@
 
 UPDATE wsgi.py to your install directory.
 
-1: Make migrations
-2: Create super user
-3: py manage.py loaddata tests.yaml
+1: py manage.py makemigrations
+
+2: py manage.py migrate
+
+3: py manage.py createsuperuser
+
+4: py manage.py loaddata tests.yaml
