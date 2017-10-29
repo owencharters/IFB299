@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'index.html'}, name='logout'),
     url(r'^administratorPage/', views.register, name='administratorPage'),
     url(r'^login/', views.login, name='login'),
+    url(r'^loginSuccessfully/?', views.loginSuccessfully, name ='loginSuccessfully'),
     url(r'^summary/?', views.summary, name ='summary'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

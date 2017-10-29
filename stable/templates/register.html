@@ -8,7 +8,7 @@
 
 <center><title>Register</title><h1>Join to see more!</h1></center>
 <center>
-<form method="post">
+<form method="post" action='{% url 'loginSuccessfully' %}'>
   {% csrf_token %}
   {% for field in form %}
     <p>
@@ -22,6 +22,7 @@
       {% endfor %}
     </p>
   {% endfor %}
-  <button type="submit">Sign up</button>
+  <button type="submit"><a href="{% url 'index' %}"></a>Sign up</button>
+
 </form>
 </center>
