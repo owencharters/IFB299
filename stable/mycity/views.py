@@ -69,3 +69,7 @@ def login(request):
     else:
         form = UserForm()
     return render(request, 'login.html', {'form': form})
+
+def loginSuccessfully(request):
+    template = loader.get_template('loginSuccessfully.html')
+    return render(request, 'loginSuccessfully.html')

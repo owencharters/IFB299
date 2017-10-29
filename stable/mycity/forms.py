@@ -11,6 +11,7 @@ class UserForm(ModelForm):
         user_lastname = forms.CharField(max_length=30, required=True, help_text='Required.')
         user_type = forms.CharField(max_length=30, required=True, help_text='Required.')
         home_city = forms.CharField(max_length=30, required=True, help_text='Required.')
+        password = forms.CharField(max_length=30, required=True, help_text='Required.')
         class Meta:
                 model = User
                 fields = ['username', 'user_firstname', 'user_lastname', 'user_type', 'home_city', 'email', 'password']
