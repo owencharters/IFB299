@@ -8,4 +8,6 @@ UPDATE wsgi.py to your install directory.
 
 3: py manage.py createsuperuser
 
-4: py manage.py loaddata tests.yaml
+4: pip install pyyaml
+
+5: py manage.py loaddata tests.yaml
