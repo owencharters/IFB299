@@ -14,7 +14,7 @@ class UserForm(ModelForm):
         password = forms.CharField(max_length=30, required=True, help_text='Required.')
         class Meta:
                 model = User
-                fields = ['username', 'user_firstname', 'user_lastname', 'user_type', 'home_city', 'email', 'password']
+                fields = ['username', 'user_firstname', 'user_lastname', 'password', 'user_type', 'home_city', 'email']
 
 class DocumentForm(forms.ModelForm):
 	class Meta:
