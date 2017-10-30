@@ -18,6 +18,14 @@ header {
     display:inline-flex;
     line-height: 80px;
 }
+header1 {
+	text-align:center;
+}
+#register {
+	position: absolute;
+	top: auto;
+	left: 40%;
+}
 #logo{
     width: 250px;
     border-right:1px solid gray;
@@ -43,7 +51,24 @@ header {
     font-size: 23px;
     list-style:none;
     border-right:1px solid gray;
-    width:50%;
+    width:50%
+}
+#top_nav1{
+	min-height:94px;
+    width: 15%;
+}
+#top_nav1 ul{
+  min-height:94px;
+  position:absolute;
+  right:0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+#top_nav1 li{
+    font-size: 23px;
+    list-style:none;
+    width:0%;
 }
 /*Button A*/
 #top_nav a {
@@ -55,6 +80,17 @@ header {
   transition: .3s;
 }
 #top_nav a:hover {
+  background-color: #3383ff;
+}
+#top_nav1 a {
+	position: absolute;
+	right = 0;
+	top = 0;
+	min-height:94px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+#top_nav1 a:hover {
   background-color: #3383ff;
 }
 #page_body{
@@ -143,7 +179,7 @@ footer{
     width:500px;
 }
 #profile_heading{
-    width:200px;
+    width:250px;
     margin:15px auto;
     padding: 0 0 0 40px;
 }
