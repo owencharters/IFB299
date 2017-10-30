@@ -1,0 +1,19 @@
+- model: mycity.UserType
+  pk: 1
+  fields:
+    type_desc: Student
+- model: mycity.Weather
+  pk: 1
+  fields:
+    weather: Hot
+- model: mycity.Cities
+  pk: 1
+  fields:
+    title: Brisbane
+    weather: 1
+- model: mycity.Profile
+  pk: 1
+  fields:
+    city_id: 1
+    type_id: 1
+    user_id: 1
