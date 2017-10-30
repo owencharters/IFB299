@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>My City</title>
+<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+</head>
+<body>
+<style>
+body {
+    font-family: 'Josefin Sans';font-size: 22px;
+}
+</style>
+    <div id="main_container">
+        <header class="transparent">
+            <div id="logo">
+                <img src="{{ MEDIA_URL }}logo.svg" width=100% />
+            </div>
+            <div id="top_nav">
+                <ul><li id="language"> 
+                <select name="language">
+                            <option value="English">English</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                </select>
+		</li>
+
+                    <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
+                    <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="middle_nav" class="transparent">
+            <a href="#">Tourist</a>
+            <a href="#">Student</a>
+            <a href="#">Businessman</a>
+        </div>
+        <div id="page_body">
+            <div id="detail_container" class="transparent">
+                <p>Can be used to list information about city information</p>
+            </div>
+            <div id="map_container" class="transparent">
+                <img src="{{ MEDIA_URL }}mapimage.png" width="100%"/>
+            </div>
+            <div id="side_nav" class="transparent">
+                <a href="#">Hotels</a>
+                <a href="#">City Information</a>
+                <a href="#">Transport</a>
+                <a href="#">Other Cities</a>
+                <a href="#">Weather</a>
+                <a href="#">Medical Services</a>
+                <a href="#">Travel Services</a>
+            </div>
+        </div>
+        <footer class="transparent">Hi Owen</footer>
+    </div>
+</body>
+</html>
