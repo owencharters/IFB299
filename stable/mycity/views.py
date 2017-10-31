@@ -20,28 +20,23 @@ def index(request):
 
 def register(request):
     template = loader.get_template('register.html')
-    user_type_all = UserType.objects.order_by('-type_desc')
-
     if request.method == 'POST':
-        django_user_form = SignupForm(request.POST)
+        form = UserForm(request.POST)
         profile_form = ProfileForm(request.POST)
-        if django_user_form.is_valid() and profile_form.is_valid():
-             try:
-                 user = User.objects.create_user(request.POST.get(username), django_user_form.email, django_user_form.password)
-             #django_user_form.user_id = profile_form.user_id
-                 profile_form.save()
-                 messages.success(request, ('Your profile was successfully updated!'))
-             except IntegrityError as e:
-                 return redirect("summary.html", {"Success": e.__cause__})
-        else:
-             messages.error(request, ('Please correct the error below.'))
+        if form.is_valid():
+            form.save()
+            profile_form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return HttpResponseRedirect('/login/')
     else:
-        django_user_form = SignupForm()
-        profile_form = ProfileForm()
-    return render(request, 'register.html', {
-        'user_form': django_user_form,
-        'profile_form': profile_form,
-})
+        form = UserForm()
+
+    return render(request, 'register.html', {'form': form,
+                #'profile_form': profile_form
+                })
 
 
 def summary(request, button_id):

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class User(models.Model):
 
@@ -8,9 +9,10 @@ class User(models.Model):
 
 	username= models.CharField(max_length=20)
 
-	user_firstname =  models.CharField(max_length=20, blank=True, null=True)
+	firstname =  models.CharField(max_length=20, blank=True, null=True)
+	
 
-	user_lastname = models.CharField(max_length=20, blank=True, null=True)
+	lastname = models.CharField(max_length=20, blank=True, null=True)
 
 	user_type = models.CharField(max_length=20)
 
@@ -265,6 +267,28 @@ class Restaurants(models.Model):
 	def __str__(self):
 
 		return self.restaurant_name
+
+class Profile(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+	type_id = models.ForeignKey(UserType, default=2)
+
+	city_id = models.ForeignKey(Cities, default=2)
+
+
+	def User(self):
+
+		return self.user
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
 
 class Document(models.Model):
 	description = models.CharField(max_length=255, blank=True)
