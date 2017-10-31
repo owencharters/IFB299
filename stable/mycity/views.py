@@ -49,8 +49,16 @@ def summary(request, button_id):
     summaryInfo = Hotels.objects.defer('hotel_id')
     if button_id == "hotels":
         summaryInfo = Hotels.objects.defer('hotel_id')
-    elif button_id == "citiyinfo":
-        summaryInfo = Libraries.objects.all()
+    elif button_id == "parks":
+        summaryInfo = Parks.objects.all()
+    elif button_id == "zoos":
+        summaryInfo = Zoos.objects.all()
+    elif button_id == "museums":
+        summaryInfo = Museums.objects.all()
+    elif button_id == "malls":
+        summaryInfo = Malls.objects.all()
+    elif button_id == "restaurants":
+        summaryInfo = Restaurants.objects.all()
     elif button_id == "Colleges":
         summaryInfo = Colleges.objects.all()
     elif button_id == "libraries":
