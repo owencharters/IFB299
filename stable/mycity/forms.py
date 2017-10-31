@@ -15,13 +15,11 @@ class ProfileForm(forms.ModelForm):
 
 class SignupForm(forms.ModelForm):
     username = forms.CharField(max_length=30, required=True, help_text='Required.')
-    first_name = forms.CharField(max_length=30, required=True, help_text='Required.')
-    last_name = forms.CharField(max_length=30, required=True, help_text='Required.')
-    user_type = forms.CharField(max_length=30, required=True, help_text='Required.')
-    home_city = forms.CharField(max_length=30, required=True, help_text='Required.')
+    password = forms.CharField(max_length=30, required=True, help_text='Required.')
+  
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password')
+        fields = ('username', 'first_name', 'last_name',  'password', 'email')
 
 
 class DocumentForm(forms.ModelForm):

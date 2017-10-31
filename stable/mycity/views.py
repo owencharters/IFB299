@@ -10,7 +10,6 @@ from django.contrib.auth import login, authenticate
 from django.conf import settings
 
 
-
 @login_required
 def index(request):
     cities_all = Cities.objects.order_by('-title')[:5]
@@ -24,7 +23,7 @@ def register(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return redirect('login')
+            return redirect('signedUpSuccessfully')
     else:
         form = SignupForm()
 
@@ -91,4 +90,8 @@ def login(request):
             return redirect('home')
     else:
         form = UserForm()
+
+def signedUpSuccessfully(request):
+    template = loader.get_template('signedUpSuccessfully.html')
+    return render(request, 'signedUpSuccessfully.html')
     return render(request, 'login.html', {'form': form})
