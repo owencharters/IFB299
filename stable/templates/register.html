@@ -11,7 +11,7 @@
 <style>
 body {
     font-family: 'Josefin Sans';font-size: 22px;
-	
+
 }
 body {
       background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
@@ -25,7 +25,7 @@ body {
                 <img src="{{ MEDIA_URL }}logo.svg" width=100% />
             </div>
             <div id="top_nav1">
-                <ul><li id="language"> 
+                <ul><li id="language">
                 <select name="language">
                             <option value="English">English</option>
                             <option value="Korean">Korean</option>
@@ -46,11 +46,9 @@ body {
 			  {% if field.help_text %}
 				<small style="color: grey">{{ field.help_text }}</small>
 			  {% endif %}
-			  {% for error in field.errors %}
-				<p style="color: red">{{ error }}</p>
-			  {% endfor %}
 			</p>
 		  {% endfor %}
-		  <button type="submit">Sign up</button>
+      <button type="submit">Sign up</button>
+      <a href="{% url 'login' %}"> Go to Login</a>
 		</form>
 	</div>

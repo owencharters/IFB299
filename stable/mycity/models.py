@@ -18,7 +18,7 @@ class User(models.Model):
 
 	email = models.CharField(max_length=300, blank=True, null=True)
 
-	password = models.CharField(max_length=50)	
+	password = models.CharField(max_length=50)
 
 	def __str__(self):
 
@@ -26,7 +26,7 @@ class User(models.Model):
 	def __str__(self):
 
 		return self.user_lastname
-		
+
 
 class UserType(models.Model):
 
@@ -270,3 +270,15 @@ class Document(models.Model):
 	description = models.CharField(max_length=255, blank=True)
 	document = models.FileField(upload_to='')
 	uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
+class Profile(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+	type_id = models.ForeignKey(UserType, default=2)
+
+	city_id = models.ForeignKey(Cities, default=2)
+
+	def User(self):
+
+		return self.user

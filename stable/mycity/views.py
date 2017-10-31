@@ -10,38 +10,26 @@ from django.contrib.auth import login, authenticate
 from django.conf import settings
 
 
-
 @login_required
 def index(request):
     cities_all = Cities.objects.order_by('-title')[:5]
     template = loader.get_template('index.html')
     return render(request, 'index.html')
 
-
 def register(request):
     template = loader.get_template('register.html')
     user_type_all = UserType.objects.order_by('-type_desc')
-
     if request.method == 'POST':
-        django_user_form = SignupForm(request.POST)
-        profile_form = ProfileForm(request.POST)
-        if django_user_form.is_valid() and profile_form.is_valid():
-             try:
-                 user = User.objects.create_user(request.POST.get(username), django_user_form.email, django_user_form.password)
-             #django_user_form.user_id = profile_form.user_id
-                 profile_form.save()
-                 messages.success(request, ('Your profile was successfully updated!'))
-             except IntegrityError as e:
-                 return redirect("summary.html", {"Success": e.__cause__})
-        else:
-             messages.error(request, ('Please correct the error below.'))
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.set_password(user.password)
+            form.save(commit=True)
+            return redirect('signedUpSuccessfully')
     else:
-        django_user_form = SignupForm()
-        profile_form = ProfileForm()
-    return render(request, 'register.html', {
-        'user_form': django_user_form,
-        'profile_form': profile_form,
-})
+        form = SignupForm()
+
+    return render(request, 'register.html', {'form': form})
 
 
 def summary(request, button_id):
@@ -106,4 +94,8 @@ def login(request):
             return redirect('home')
     else:
         form = UserForm()
+
+def signedUpSuccessfully(request):
+    template = loader.get_template('signedUpSuccessfully.html')
+    return render(request, 'signedUpSuccessfully.html')
     return render(request, 'login.html', {'form': form})
