@@ -47,6 +47,8 @@ def register(request):
 def summary(request, button_id):
     template = loader.get_template('summary.html')
     summaryInfo = Hotels.objects.defer('hotel_id')
+
+    # -- Button Management --
     if button_id == "hotels":
         summaryInfo = Hotels.objects.defer('hotel_id')
     elif button_id == "parks":
@@ -59,7 +61,7 @@ def summary(request, button_id):
         summaryInfo = Malls.objects.all()
     elif button_id == "restaurants":
         summaryInfo = Restaurants.objects.all()
-    elif button_id == "Colleges":
+    elif button_id == "colleges":
         summaryInfo = Colleges.objects.all()
     elif button_id == "libraries":
         summaryInfo = Libraries.objects.all()
