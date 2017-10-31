@@ -1,0 +1,15 @@
+<title>Register</title><h1>Join to see more!</h1>
+<form action="register" method="POST">
+<label for="FirstName">First Name </label><input type="text" name="FirstName"><label for="LastName"> Last Name </label><input type="text" name="LastName"><br>
+<label for="Username">Username </label><input type="text" name="Username"><br>
+<label for="Password">Password </label><input type="password" name="Password"><br>
+<label for="Confirm">Confirm Password </label><input type="password" name="Confirm"><br>
+<label for="Email">E-mail Address </label><input type="email" name="Email"><br>
+<label for="Type">User Type </label><select name="Type">
+{% for UserType in user_type_all %}
+<option value="{{UserType.type_desc}}">{{UserType.type_desc}}</option>
+{%endfor %}</select>
+<br>
+<input type="submit" value="Submit">
+</form>
+

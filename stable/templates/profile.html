@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>Profile</title>
+	<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+    <script>
+        function edit_button() {
+            document.getElementById("Name").disabled = false;
+            document.getElementById("Username").disabled = false;
+            document.getElementById("Password").disabled = false;
+            document.getElementById("HomeCity").disabled = false;
+            document.getElementById("Email").disabled = false;
+            document.getElementById("UserType").disabled = false;
+            document.getElementById("Phonenumber").disabled = false;
+            document.getElementById("save_profile").style.display='block';
+            document.getElementById("edit_profile").style.display='none';
+        }
+        function save_button() {
+            document.getElementById("save_profile").style.display = 'none';
+            document.getElementById("edit_profile").style.display='block';
+            document.getElementById("Name").disabled = true;
+            document.getElementById("Username").disabled = true;
+            document.getElementById("Password").disabled = true;
+            document.getElementById("HomeCity").disabled = true;
+            document.getElementById("Email").disabled = true;
+            document.getElementById("UserType").disabled = true;
+            document.getElementById("Phonenumber").disabled = true;
+        }
+    </script>
+</head>
+<body>
+<style>
+body {
+    font-family: 'Josefin Sans';font-size: 22px;
+}
+</style>
+    <div id="main_container">
+        <header class="transparent">
+            <div id="logo">
+                <img src="{{ MEDIA_URL }}logo.svg" width=100% />
+            </div>
+            <div id="top_nav">
+                <ul><li id="language"> 
+                <select name="language">
+                            <option value="English">English</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                </select>
+		</li>
+
+                    <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
+                    <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="page_body">
+            <div id="profile_container">
+                <h1 id="profile_heading">My profile</h1>
+
+                <form id="profile_form" action="#" method="post">
+                    <label for="Name">Name </label><input type="text" id="Name" value="test" disabled><br>
+                    <label for="Username">Username </label><input type="text" id="Username" value="test" disabled><br>
+                    <label for="Password">Password </label><input type="password" id="Password" value="test" disabled><br>
+                    <label for="HomeCity">Home City </label><input type="text" id="HomeCity" value="test" disabled><br>
+                    <label for="Email">E-mail Address </label><input type="email" id="Email" value="test" disabled><br>
+                    <label for="Type">User Type</label>
+                    <select name="Type" id="UserType" disabled>
+                        {% for UserType in user_type_all %}
+                            <option value="{{UserType.type_desc}}">{{UserType.type_desc}}</option>
+                        {%endfor %}
+                    </select><br>
+                    <label for="PhoneNumber">Phone number</label><input type="tel" id="Phonenumber" value= 1232194241 disabled><br>
+                    <input type="button" id="edit_profile" value="Edit my profile"  onclick="edit_button()" />
+                    <input type="button" id="save_profile" value="Save" style="display:none" onclick="save_button()"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
