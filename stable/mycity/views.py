@@ -17,26 +17,18 @@ def index(request):
     template = loader.get_template('index.html')
     return render(request, 'index.html')
 
-
 def register(request):
     template = loader.get_template('register.html')
+    user_type_all = UserType.objects.order_by('-type_desc')
     if request.method == 'POST':
-        form = UserForm(request.POST)
-        profile_form = ProfileForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
-            form.save()
-            profile_form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return HttpResponseRedirect('/login/')
+            form.save(commit=True)
+            return redirect('login')
     else:
-        form = UserForm()
+        form = SignupForm()
 
-    return render(request, 'register.html', {'form': form,
-                #'profile_form': profile_form
-                })
+    return render(request, 'register.html', {'form': form})
 
 
 def summary(request, button_id):
