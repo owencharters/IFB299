@@ -1,4 +1,5 @@
 {% load static %}
+{% load render_table from django_tables2 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,17 +41,17 @@ body {
         </div>
         <div id="page_body">
             <div id="detail_container" class="transparent">
-                <p>Can be used to list information about city information</p>
+		    <p>{% render_table summaryInfo %}</p>
             </div>
             <div id="map_container" class="transparent">
                 <img src="{{ MEDIA_URL }}mapimage.png" width="100%"/>
             </div>
             <div id="side_nav" class="transparent">
-                <a href="#">Hotels</a>
-                <a href="#">City Information</a>
-                <a href="#">Transport</a>
-                <a href="#">Other Cities</a>
-                <a href="#">Weather</a>
+                <a href="../hotels">Hotels</a>
+                <a href="../cityinfo">City Information</a>
+                <a href="../colleges">Colleges</a>
+                <a href="../libraries">Libraries</a>
+                <a href="../industries">Industries</a>
                 <a href="#">Medical Services</a>
                 <a href="#">Travel Services</a>
             </div>

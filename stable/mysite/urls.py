@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'index.html'}, name='logout'),
     url(r'^administratorPage/', views.register, name='administratorPage'),
     url(r'^login/', views.login, name='login'),
-    url(r'^summary/?', views.summary, name ='summary'),
+    url(r'^summary/(?P<button_id>[a-z]+?_?[a-z]+)/$', views.summary, name ='summary'),
     url(r'^profile/?', views.profile, name ='profile'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
