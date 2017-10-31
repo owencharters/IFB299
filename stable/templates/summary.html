@@ -8,6 +8,32 @@
     <link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}" />
     <title>Title</title>
 </head>
+
+<head>
+<style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+</head>
+
+
+
 <body>
     <div id="main_container">
         <header class="transparent">
@@ -30,18 +56,22 @@
                 </ul>
             </div>
         </header>
-        <div id="middle_nav" class="transparent">
+		<center><input type="text" name="search" placeholder="Search.."></center>
+        <div id="middle_nav" class="transparent">	
             <a href="#">Tourist</a>
             <a href="#">Student</a>
             <a href="#">Businessman</a>
         </div>
+		
         <div id="page_body">
+		    
             <div id="detail_container" class="transparent">
                 <p>{% render_table summaryInfo %}</p>
 
             </div>
-            
+           
             <div id="side_nav" class="transparent">
+				
                 <a href="../hotels">Hotels</a>
                 <div class="dropdown">
                   <button class="dropbtn">City Information</button>
