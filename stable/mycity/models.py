@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+
 
 class User(models.Model):
 
@@ -9,10 +8,9 @@ class User(models.Model):
 
 	username= models.CharField(max_length=20)
 
-	firstname =  models.CharField(max_length=20, blank=True, null=True)
-	
+	user_firstname =  models.CharField(max_length=20, blank=True, null=True)
 
-	lastname = models.CharField(max_length=20, blank=True, null=True)
+	user_lastname = models.CharField(max_length=20, blank=True, null=True)
 
 	user_type = models.CharField(max_length=20)
 
@@ -20,7 +18,7 @@ class User(models.Model):
 
 	email = models.CharField(max_length=300, blank=True, null=True)
 
-	password = models.CharField(max_length=50)	
+	password = models.CharField(max_length=50)
 
 	def __str__(self):
 
@@ -28,7 +26,7 @@ class User(models.Model):
 	def __str__(self):
 
 		return self.user_lastname
-		
+
 
 class UserType(models.Model):
 
@@ -268,6 +266,12 @@ class Restaurants(models.Model):
 
 		return self.restaurant_name
 
+class Document(models.Model):
+	description = models.CharField(max_length=255, blank=True)
+	document = models.FileField(upload_to='')
+	uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -275,22 +279,6 @@ class Profile(models.Model):
 
 	city_id = models.ForeignKey(Cities, default=2)
 
-
 	def User(self):
 
 		return self.user
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
-
-
-class Document(models.Model):
-	description = models.CharField(max_length=255, blank=True)
-	document = models.FileField(upload_to='')
-	uploaded_at = models.DateTimeField(auto_now_add=True)
