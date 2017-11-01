@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
         <h1>Smart City</h1>
             <form method="post" action = '{% url "login" %}'>
                 {% csrf_token %}
@@ -9,5 +8,6 @@
                 <input type='password' name='password' required id='id_password'>
                 <button type="submit">Login</button>
             </form>
+		
 
 </body>

@@ -13,7 +13,7 @@ body{
 }
 header {
     width: 100%;
-    height: 94px;
+    height: 100px;
     list-style: none;
     background:linear-gradient(#3498db ,#fff);
     text-align: center;
@@ -127,7 +127,7 @@ header1 {
 #side_nav {
 	position:absolute;
 	left:20px;
-	top:238px;
+	top:190px;
 	height: 107px;
 	border-radius: 10px;
     width: 50%;
@@ -137,7 +137,7 @@ header1 {
 }
 #side_nav a{
     float: left;
-    width: 116px;
+    width: 90px;
     border: 1px solid gray;
     display: block;
     color: #f2f2f2;
@@ -155,18 +155,18 @@ header1 {
 #detail_container{
 	position:absolute;
 	left:20px;
-	top:300px;
-    width:45%;
+	top:250px;
+    width:33%;
     background-color: beige;
-    height: 500px;
+    height: 450px;
     border: 3px solid black;
 }
 #map_container{
 	position:absolute;
 	right:15px;
-	top:300px;
-    width: 45%;
-	height: 500px;
+	top:250px;
+    width: 62%;
+	height: 450px;
     background-color: skyblue;
     border: 2px solid black;
     text-align: center;
@@ -175,7 +175,7 @@ footer{
 	position:fixed;
 	bottom:0px;
     background-color:white;
-    height: 70px;
+    height: 20px;
     width:100%;
 }
 
