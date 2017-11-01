@@ -12,7 +12,7 @@ from django.conf import settings
 
 @login_required
 def index(request):
-#Index view
+    cities_all = Cities.objects.order_by('-title')[:5]
     template = loader.get_template('index.html')
     return render(request, 'index.html')
 
@@ -34,15 +34,15 @@ def register(request):
 
 
 def summary(request, button_id):
-#View for main dashboard. Returns table of results
+
+    #View for main dashboard. Returns table of results
 #and first result firstitem to be used in template
 #for map display
+
     template = loader.get_template('summary.html')
-    summaryInfo = Hotels.objects.all()
-	
     # -- Button Management --
     if button_id == "hotels":
-        summaryInfo = Hotels.objects.all()
+        summaryInfo = Hotels.objects.defer('hotel_id')
     elif button_id == "parks":
         summaryInfo = Parks.objects.all()
     elif button_id == "zoos":
@@ -60,32 +60,33 @@ def summary(request, button_id):
     elif button_id == "industries":
         summaryInfo = Industries.objects.all()
     else:
-        summaryInfo = Cities.objects.all()
+        raise ValueError("Incorrect url")
     firstitem = summaryInfo[:1].get()
     return render(request, 'summary.html', {'summaryInfo': summaryInfo,
-	'firstitem': firstitem})
+    'firstitem': firstitem})
 
 
 def profile(request):
-#View for profile. Incomplete and using dummy data
+    #View for profile. Incomplete and using dummy data
+
     template = loader.get_template('profile.html')
     return render(request, 'profile.html')
 
 
 def model_form_upload(request):
-#View for file upload for admin map upload. Stores in media folder.
-	if request.method == 'POST': 
+	if request.method == 'POST':
 		form = DocumentForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save() #saves data if using POST and form passes validation
+			form.save()
 			messages.add_message(request, messages.SUCCESS, 'File Uploaded Successfully')
 	else:
-		form = DocumentForm() #else clear form
+		form = DocumentForm()
 	return render(request, 'model_form_upload.html', {
 		'form': form
 		})
 
 def administratorPage(request):
+    cities_all = Cities.objects.order_by('-title')[:5]
     template = loader.get_template('administratorPage.html')
     return render(request, 'administratorPage.html')
 
@@ -93,10 +94,10 @@ def login(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            form.save() #saves data if using POST and form passes validation
+            form.save()
             username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1') #retrieves raw password from form
-            user = authenticate(username=username, password=raw_password) #automatically hashes password and checks vs records
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('home')
     else:
@@ -120,5 +121,3 @@ def search(request):
     return render_to_response('search/search_results.html',
                           { 'query_string': query_string, 'found_entries': found_entries },
                           context_instance=RequestContext(request))
-
-
