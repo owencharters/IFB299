@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^summary/(?P<button_id>[a-z]+?_?[a-z]+)/$', views.summary, name ='summary'),
     url(r'^profile/?', views.profile, name ='profile'),
     url(r'^signedUpSuccessfully/', views.signedUpSuccessfully, name ='signedUpSuccessfully'),
+    url(r'^search/?$', views.search, name='search'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
