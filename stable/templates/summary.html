@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-    <link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'screen.css' %}" />
 	<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
     <title>My City</title>
 </head>
@@ -84,8 +84,11 @@ input[type=text]:focus {
                 <a href="../libraries">Libraries</a>
                 <a href="../industries">Industries</a>
             </div>
-            <div id="map_container" class="transparent">
-                <img src="{{ MEDIA_URL }}mapimage.png" width="100%"/>
+            <div id="map_container">
+                <iframe height="100%" width="100%" src="//www.google.com/maps/embed/v1/place?q=Brisbane,Queensland
+      &zoom=17
+      &key=AIzaSyDblO2HJOBK7UYkR1FsXZYco-tOqGeaEQg">
+  </iframe>
             </div>
         </div>
         <footer class="transparent">This is footer</footer>

@@ -1,0 +1,8 @@
+- model: mycity.UserType
+  pk: 1
+  fields:
+    type_desc: Student
+- model: mycity.Cities
+  pk: 2
+  fields:
+    type_desc: Brisbane

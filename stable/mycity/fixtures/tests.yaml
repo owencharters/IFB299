@@ -1,0 +1,53 @@
+- model: mycity.UserType
+  pk: 1
+  fields:
+    type_desc: Student
+- model: mycity.Weather
+  pk: 1
+  fields:
+    weather: Hot
+- model: mycity.Cities
+  pk: 1
+  fields:
+    title: Brisbane
+    weather: 1
+- model: mycity.Cities
+  pk: 2
+  fields:
+    title: Sydney
+    weather: 1
+- model: mycity.Cities
+  pk: 3
+  fields:
+    title: Adelaide
+    weather: 1
+- model: mycity.Libraries
+  pk: 1
+  fields:
+    city: 1
+    library_name: Chermside Library
+    phone_number: 3891243
+    address: 321 Rode Rd, Chermside, Brisbane
+    email: chermside@libraries.com
+- model: mycity.Colleges
+  pk: 1
+  fields:
+    city: 1
+    college_name: Queensland University of Technology
+    phone_number: 3891243
+    address: 1 George St, Brisbane City, Brisbane
+- model: mycity.Industries
+  pk: 1
+  fields:
+    city: 1
+    name: Rugs a Million
+    phone_number: 3891243
+    address: 123 Rode Rd, Chermside, Brisbane
+- model: mycity.Zoos
+  pk: 1
+  fields:
+    city: 1
+    zoo_name: Alma Park Zoo
+    phone_number: 3891243
+    address: 1 Zoo Rd, Zooland, Brisbane
+    email: ripsteve@email.com
