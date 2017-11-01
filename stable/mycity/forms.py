@@ -14,13 +14,15 @@ class ProfileForm(forms.ModelForm):
 
 
 class SignupForm(forms.ModelForm):
-    username = forms.CharField(max_length=30, required=True, help_text='Required.')
-    password = forms.CharField(max_length=30, required=True, help_text='Required.')
-  
+
     class Meta:
         model = User
+        username = forms.CharField(max_length=30, required=True, help_text='Required.')
+        password = forms.CharField(max_length=30, required=True, help_text='Required.')
         fields = ('username', 'first_name', 'last_name',  'password', 'email')
-
+        widgets = {
+        'password': forms.PasswordInput()
+		}
 
 class DocumentForm(forms.ModelForm):
     class Meta:

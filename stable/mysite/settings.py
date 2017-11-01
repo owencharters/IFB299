@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'mysite.urls'
 LOGIN_REDIRECT_URL = 'mycity'
-
+GOOGLE_API_KEY = 'AIzaSyDblO2HJOBK7UYkR1FsXZYco-tOqGeaEQg'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
