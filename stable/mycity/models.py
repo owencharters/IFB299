@@ -72,7 +72,7 @@ class Libraries(models.Model):
 
 	city = models.ForeignKey(Cities)
 
-	library_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	phone_number = models.CharField(max_length=10)
 
@@ -82,7 +82,7 @@ class Libraries(models.Model):
 
 	def __str__(self):
 
-		return self.library_name
+		return self.name
 
 
 
@@ -94,7 +94,7 @@ class Colleges(models.Model):
 
 	city = models.ForeignKey(Cities)
 
-	college_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	phone_number = models.CharField(max_length=10)
 
@@ -102,7 +102,7 @@ class Colleges(models.Model):
 
 	def __str__(self):
 
-		return self.college_name
+		return self.name
 
 
 
@@ -156,7 +156,7 @@ class Parks(models.Model):
 
 	park_id = models.AutoField(primary_key=True)
 
-	park_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	city = models.ForeignKey(Cities)
 
@@ -168,7 +168,7 @@ class Parks(models.Model):
 
 	def __str__(self):
 
-		return self.park_name
+		return self.name
 
 
 
@@ -176,7 +176,7 @@ class Hotels(models.Model):
 
 	hotel_id = models.AutoField(primary_key=True)
 
-	hotel_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	city = models.ForeignKey(Cities)
 
@@ -188,13 +188,13 @@ class Hotels(models.Model):
 
 	def __str__(self):
 
-		return self.hotel_name
+		return self.name
 
 class Museums(models.Model):
 
 	museum_id = models.AutoField(primary_key=True)
 
-	museum_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	city = models.ForeignKey(Cities)
 
@@ -206,13 +206,13 @@ class Museums(models.Model):
 
 	def __str__(self):
 
-		return self.museum_name
+		return self.name
 
 class Zoos(models.Model):
 
 	zoo_id = models.AutoField(primary_key=True)
 
-	zoo_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	city = models.ForeignKey(Cities)
 
@@ -224,7 +224,7 @@ class Zoos(models.Model):
 
 	def __str__(self):
 
-		return self.zoo_name
+		return self.name
 
 
 
@@ -232,7 +232,7 @@ class Malls(models.Model):
 
 	mall_id = models.AutoField(primary_key=True)
 
-	mall_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	city = models.ForeignKey(Cities)
 
@@ -244,7 +244,7 @@ class Malls(models.Model):
 
 	def __str__(self):
 
-		return self.mall_name
+		return self.name
 
 
 
@@ -252,7 +252,7 @@ class Restaurants(models.Model):
 
 	restaurant_id = models.AutoField(primary_key=True)
 
-	restaurant_name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)
 
 	city = models.ForeignKey(Cities)
 
@@ -264,7 +264,7 @@ class Restaurants(models.Model):
 
 	def __str__(self):
 
-		return self.restaurant_name
+		return self.name
 
 class Document(models.Model):
 	description = models.CharField(max_length=255, blank=True)

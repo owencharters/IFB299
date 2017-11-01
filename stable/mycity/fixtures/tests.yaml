@@ -25,7 +25,7 @@
   pk: 1
   fields:
     city: 1
-    library_name: Chermside Library
+    name: Chermside Library
     phone_number: 3891243
     address: 321 Rode Rd, Chermside, Brisbane
     email: chermside@libraries.com
@@ -33,7 +33,7 @@
   pk: 1
   fields:
     city: 1
-    college_name: Queensland University of Technology
+    name: Queensland University of Technology
     phone_number: 3891243
     address: 1 George St, Brisbane City, Brisbane
 - model: mycity.Industries
@@ -47,7 +47,55 @@
   pk: 1
   fields:
     city: 1
-    zoo_name: Alma Park Zoo
+    name: Alma Park Zoo
     phone_number: 3891243
     address: 1 Zoo Rd, Zooland, Brisbane
     email: ripsteve@email.com
+- model: mycity.Hotels
+  pk: 1
+  fields:
+    city: 1
+    name: Royal Albert
+    phone_number: 3891243
+    address: 1 Albert St, Brisbane CBD, Brisbane
+    email: rpa@email.com
+- model: mycity.Malls
+  pk: 1
+  fields: 
+    city: 1
+    name: Queen St Mall
+    phone_number: 3891243
+    address: 123 Queen St, Brisbane CBD, Brisbane
+    email: qsm@email.com
+- model : mycity.Museums
+  pk: 1
+  fields:
+    city: 1
+    name: Gallery of Modern Art
+    phone_number: 3891243
+    address: 1 Grey St, South Bank, Brisbane
+    email: goma@qld.com.au
+- model: mycity.Parks
+  pk: 1
+  fields:
+    city: 1
+    name: New Farm Park
+    phone_number: 38912453
+    address: 66 New Farm Rd, New Farm, Brisbane
+    email: nf@parks.com.au
+- model: mycity.Restaurants
+  pk: 1
+  fields:
+    city: 1
+    name: McDonalds Albion
+    phone_number: 3333333
+    address: 99 Albion Rd, Albion, Brisbane
+    email: albion@mcdonalds.com.au
+- model: mycity.Restaurants
+  pk: 2
+  fields:
+    city: 1
+    name: McDonalds Morningside
+    phone_number: 3333333
+    address: 99 Some Rd, Morningside, Brisbane
+    email: morningside@mcdonalds.com.au

@@ -38,25 +38,27 @@ body {
 }
 </style>
     <div id="main_container">
-        <header class="transparent">
+<header class="transparent">
             <div id="logo">
-                <img src="{{ MEDIA_URL }}logo.svg" width=100% />
+                <a href="{% url 'summary1' %}"><img src="{{ MEDIA_URL }}logo.svg" width=100% /></a>
             </div>
             <div id="top_nav">
-                <ul><li id="language"> 
+                <ul>
+					<li id="language"> 
                 <select name="language">
                             <option value="English">English</option>
                             <option value="Korean">Korean</option>
                             <option value="Japanese">Japanese</option>
                             <option value="Chinese">Chinese</option>
                 </select>
-		</li>
-
+					</li>
+					<li><a href="{% url 'mapupload' %}">Upload</a></li>
                     <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
                     <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
                 </ul>
             </div>
         </header>
+
         <div id="page_body">
             <div id="profile_container">
                 <h1 id="profile_heading">My profile</h1>

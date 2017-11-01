@@ -10,7 +10,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.login, name='login'),
     url(r'^mycity/', include('mycity.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^register/', views.register, name='register'),
@@ -21,8 +21,10 @@ urlpatterns = [
     url(r'^administratorPage/', views.register, name='administratorPage'),
     url(r'^login/', views.login, name='login'),
     url(r'^summary/(?P<button_id>[a-z]+?_?[a-z]+)/$', views.summary, name ='summary'),
+	url(r'^summary/hotels/', views.summary, name ='summary1'),
     url(r'^profile/?', views.profile, name ='profile'),
     url(r'^signedUpSuccessfully/', views.signedUpSuccessfully, name ='signedUpSuccessfully'),
+    url(r'^search/?$', views.search, name='search'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

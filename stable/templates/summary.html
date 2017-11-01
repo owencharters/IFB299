@@ -11,9 +11,7 @@
 </head>
 <body>
 <style> 
-body {
-    font-family: 'Josefin Sans';font-size: auto;
-}
+	
 input[type=text] {
     width: 130px;
     box-sizing: border-box;
@@ -36,18 +34,19 @@ input[type=text]:focus {
     <div id="main_container">
         <header class="transparent">
             <div id="logo">
-                <img src="{{ MEDIA_URL }}logo.svg" width=100% />
+                <a href="{% url 'summary1' %}"><img src="{{ MEDIA_URL }}logo.svg" width=100% /></a>
             </div>
             <div id="top_nav">
-                <ul><li id="language"> 
+                <ul>
+					<li id="language"> 
                 <select name="language">
                             <option value="English">English</option>
                             <option value="Korean">Korean</option>
                             <option value="Japanese">Japanese</option>
                             <option value="Chinese">Chinese</option>
                 </select>
-		</li>
-
+					</li>
+					<li><a href="{% url 'mapupload' %}">Upload</a></li>
                     <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
                     <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
                 </ul>
@@ -59,7 +58,11 @@ input[type=text]:focus {
             <a href="#">Businessman</a>
         </div>
         </header>
-		<center><input type="text" name="search" placeholder="Search.."></center>
+		<center>
+		<form type="get" action="." style="margin: 0">
+			<input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+		</form>
+		</center>
         <div id="page_body">
 		    
             <div id="detail_container" class="transparent">
@@ -85,13 +88,13 @@ input[type=text]:focus {
                 <a href="../industries">Industries</a>
             </div>
             <div id="map_container">
-                <iframe height="100%" width="100%" src="//www.google.com/maps/embed/v1/place?q=Brisbane,Queensland
+                <iframe height="100%" width="100%" src="HTTPS://www.google.com/maps/embed/v1/place?q=Brisbane,Queensland+{{firstitem}}
       &zoom=17
       &key=AIzaSyDblO2HJOBK7UYkR1FsXZYco-tOqGeaEQg">
   </iframe>
             </div>
         </div>
-        <footer class="transparent">This is footer</footer>
+        <footer class="transparent"><center>IFB299 Team 91</center></footer>
     </div>
 </body>
 </html>
