@@ -64,11 +64,11 @@ body {
                 <h1 id="profile_heading">My profile</h1>
 
                 <form id="profile_form" action="#" method="post">
-                    <label for="Name">Name </label><input type="text" id="Name" value="test" disabled><br>
-                    <label for="Username">Username </label><input type="text" id="Username" value="test" disabled><br>
+                    <label for="Name">Name </label><input type="text" id="Name" value={{ user.user_firstname }} disabled><br>
+                    <label for="Username">Username </label><input type="text" id="Username" value={{ user.username }} disabled><br>
                     <label for="Password">Password </label><input type="password" id="Password" value="test" disabled><br>
                     <label for="HomeCity">Home City </label><input type="text" id="HomeCity" value="test" disabled><br>
-                    <label for="Email">E-mail Address </label><input type="email" id="Email" value="test" disabled><br>
+                    <label for="Email">E-mail Address </label><input type="email" id="Email" value={{ user.email }} disabled><br>
                     <label for="Type">User Type</label>
                     <select name="Type" id="UserType" disabled>
                         {% for UserType in user_type_all %}

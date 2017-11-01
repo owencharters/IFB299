@@ -91,7 +91,6 @@ def administratorPage(request):
     return render(request, 'administratorPage.html')
 
 def login(request):
-<<<<<<< HEAD
 	if request.method == 'POST':
 		form = LoginForm(request.POST)
 		if form.is_valid():
@@ -102,19 +101,6 @@ def login(request):
 			login(request, user)
 
 	return render(request, 'login.html')
-=======
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserForm()
->>>>>>> 51329f8e0db0351565e2aed5b7bd5deb9f30d3cd
 
 def signedUpSuccessfully(request):
     template = loader.get_template('signedUpSuccessfully.html')
