@@ -60,7 +60,9 @@ def summary(request, button_id):
     elif button_id == "industries":
         summaryInfo = Industries.objects.all()
     else:
+        # - Report "Incorrect url" if url value matches none of the provided options
         raise ValueError("Incorrect url")
+    # - First Item of table used for Google API
     firstitem = summaryInfo[:1].get()
     return render(request, 'summary.html', {'summaryInfo': summaryInfo,
     'firstitem': firstitem})
@@ -107,6 +109,7 @@ def signedUpSuccessfully(request):
     return render(request, 'signedUpSuccessfully.html')
     return render(request, 'login.html', {'form': form})
 
+# Handles search functionality, receiving user query to sort through database
 def search(request):
     query_string = ''
     found_entries = None

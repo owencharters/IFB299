@@ -1,13 +1,14 @@
-import unittest
+from django.test import TestCase
 from django.test.client import RequestFactory
 from mycity.views import * 
 
-class SummaryTests(unittest.TestCase):
-	#Test /summary/x link handling
+class SummaryTests(TestCase):
+	# Handling of summary/[button url] testing
 
 	def setUp(self):
 		self.factory = RequestFactory()
 
+	# Test for incorrect URL Input
 	def test_summaryFalse(self):
 		request = self.factory.get('/summary/fake')
 
@@ -98,8 +99,8 @@ class SummaryTests(unittest.TestCase):
 			self.fail("Industries Url setup wrong")
 			pass
 
-class WebpageTests(unittest.TestCase):
-	# Test that necessary webpages exist with proper Url
+class WebpageTests(TestCase):
+	# Test that webpages exist at the necessary Urls
 
 	def setUp(self):
 		self.factory = RequestFactory()
@@ -122,8 +123,8 @@ class WebpageTests(unittest.TestCase):
 
 		self.assertEqual(response.status_code, 200)
 
-class RedirectTests(unittest.TestCase):
-	# Test that necessary redirects work
+class RedirectTests(TestCase):
+	# Test that redirects exist where necessary
 
 	def setUp(self):
 		self.factory = RequestFactory()
