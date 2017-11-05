@@ -1,0 +1,109 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'screen.css' %}" />
+	<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+    <title>My City</title>
+</head>
+<body>
+<style> 
+	
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+    <div id="main_container">
+        <header class="transparent">
+            <div id="logo">
+                <a href="{% url 'summary1' %}"><img src="{{ MEDIA_URL }}logo.svg" width=100% /></a>
+            </div>
+
+            <!-- Top Navigation Bar -->
+            <div id="top_nav">
+                <ul>
+					<li id="language"> 
+                <select name="language">
+                            <option value="English">English</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                </select>
+					</li>
+					<li><a href="{% url 'mapupload' %}">Upload</a></li>
+                    <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
+                    <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </header>
+        <div id="middle_nav" class="transparent">
+            <a href="#">Tourist</a>
+            <a href="#">Student</a>
+            <a href="#">Businessman</a>
+        </div>
+        </header>
+
+        <!-- Div for search box -->
+		<center>
+		<form type="get" action="." style="margin: 0">
+			<input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+		</form>
+		</center>
+        <div id="page_body">
+		    
+            <!-- Table containing selected summary info -->
+            <div id="detail_container" class="transparent">
+                <p>{% render_table summaryInfo %}</p>
+
+            </div>
+           
+            <!-- Navigation bar containing summary selection buttons -->
+            <div id="side_nav" class="transparent">
+                <a href="../hotels">Hotels</a>
+                <div class="dropdown">
+                  <button class="dropbtn">City Information</button>
+
+                  <!-- Dropdown button div -->
+                  <div class="dropdown-content">
+                    <a href="../parks">Parks</a>
+                    <a href="../zoos">Zoos</a>
+                    <a href="../museums">Museums</a>
+                    <a href="../malls">Malls</a>
+                    <a href="../restaurants">Restaurants</a>
+                 </div>
+                </div>
+                <a href="../colleges">Colleges</a>
+                <a href="../libraries">Libraries</a>
+                <a href="../industries">Industries</a>
+            </div>
+
+            <!-- Google maps api container -->
+            <div id="map_container">
+                <iframe height="100%" width="100%" src="HTTPS://www.google.com/maps/embed/v1/place?q=Brisbane,Queensland+{{firstitem}}
+      &zoom=17
+      &key=AIzaSyDblO2HJOBK7UYkR1FsXZYco-tOqGeaEQg">
+  </iframe>
+            </div>
+        </div>
+        <footer class="transparent"><center>IFB299 Team 91</center></footer>
+    </div>
+</body>
+</html>

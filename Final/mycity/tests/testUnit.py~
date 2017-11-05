@@ -1,0 +1,15 @@
+import unittest
+from django.test.client import RequestFactory
+from mycity.views import * 
+
+class TestBasic(unittest.TestCase):
+	"Basic Tests"
+
+	def setUp(self):
+		self.factory = RequestFactory()
+
+	def test_basic(self):
+		request = self.factory.get('/summary')
+
+		response = profile(request)
+		self.assertEqual(response.status_code, 200)

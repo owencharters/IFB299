@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>Profile</title>
+	<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
+</head>
+<body>
+<style>
+body {
+    font-family: 'Josefin Sans';font-size: 22px;
+}
+</style>
+    <div id="main_container">
+<header class="transparent">
+            <div id="logo">
+                <a href="{% url 'summary1' %}"><img src="{{ MEDIA_URL }}logo.svg" width=100% /></a>
+            </div>
+            <div id="top_nav">
+                <ul>
+					<li id="language"> 
+                <select name="language">
+                            <option value="English">English</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                </select>
+					</li>
+					<li><a href="{% url 'mapupload' %}">Upload</a></li>
+                    <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
+                    <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div id="page_body">
+            <div id="profile_container">
+                <h1 id="profile_heading">My profile</h1>
+
+                <form id="profile_form" class="forms" method="post">{% csrf_token %}
+                    {{ user_form.as_p }}
+                    {{ pass_form.as_p }}
+                    {{ profile_form.as_p}}
+                    <label for="Type">User Type:</label>
+                    <select name="Type" id="UserType">
+                        {% for type in types %}
+                            <option value=''>{{type.type_desc}}</option>
+                        {% endfor %}
+                    </select><br>
+                    <input type="button" id="cancel_profile" class="profile_buttons" onclick="goBack()" value="Cancel"/>
+                    <input type="submit" id="save_profile" class="profile_buttons" value="Save"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

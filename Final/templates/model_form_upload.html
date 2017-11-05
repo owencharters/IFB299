@@ -1,0 +1,54 @@
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	</head>
+        <header class="transparent">
+            <div id="logo">
+                <a href="{% url 'summary1' %}"><img src="{{ MEDIA_URL }}logo.svg" width=100% /></a>
+            </div>
+            <div id="top_nav">
+                <ul><li id="language"> 
+                <select name="language">
+                            <option value="English">English</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                </select>
+		</li>
+					<li><a href="{% url 'mapupload' %}">Upload</a></li>
+                    <li id="logout" ><a href="{% url 'logout' %}">Logout</a></li>
+                    <li id="profile" ><a href="{% url 'profile' %}">Profile</a></li>
+                </ul>
+            </div>
+        </header>
+		
+    <title><h1>Map Upload</h1></title>
+<div id="main_container">
+    <style>
+	body {
+		background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+	}
+    </style>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'summary1' %}">Return to home</a></p>
+
+ 	{% if messages %}
+	<ul class="messages">
+	    {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+	        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}Success: {% endif %}
+	        {{ message }}
+	    </li>
+	    {% endfor %}
+	</ul>
+	</div>
+	{% endif %}
+{% endblock %}

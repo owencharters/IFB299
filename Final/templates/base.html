@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+	<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+<body>
+<style>
+body {
+    font-family: 'Josefin Sans';font-size: 22px;
+}
+<html>
+
+<head>
+  <style>
+    body {
+        background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+        background-size: cover;
+        background-repeat: no-repeat
+      }
+    </style>
+</head>
+
+<body>
+<div id="main_container">
+        <header class="transparent">
+            <div id="logo">
+                <img src="{{ MEDIA_URL }}logo.svg" width=100% />
+            </div>
+            <div id="top_nav1">
+                <ul><li id="language"> 
+                <select name="language">
+                            <option value="English">English</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Chinese">Chinese</option>
+                </select>
+			</div>
+		</header>
+	</div>
+  <header1>
+    <h1>Smart City</h1>
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+          <form method="post" action = '{% url "login" %}'>
+              {% csrf_token %}
+              <label for='id_username'> Username: </label>
+              <input type='text' name='username' autofocus maxlength="254" required id='id_username'>
+              <label for='id_password'>Password: </label>
+              <input type='password' name='password' required id='id_password'>
+              <button type="submit"><a href="{% url 'login' %}"></a>Login</button>
+          </form>
+      <form method="post" action = '{% url "register" %}'>
+	  {% csrf_token %}
+	  <button class="button_register1"><a href="{% url 'register' %}"></a>Register</button>
+	  </form>
+    {% endif %}
+  </header1>
+  
+
+</body>
+</html>

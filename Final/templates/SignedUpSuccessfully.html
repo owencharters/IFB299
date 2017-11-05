@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>Register</title>
+<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+</head>
+<body>
+<style>
+body {
+    font-family: 'Josefin Sans';font-size: 22px;
+
+}
+body {
+      background-image: url(http://1.bp.blogspot.com/-9F3hMX0mcVM/Vcoj6L8EicI/AAAAAAAAPCE/XrIfzYYCkLc/s1600/IMG_7588.jpg);
+      background-size: cover;
+      background-repeat: no-repeat
+	  }
+</style>
+<div id="main_container">
+        <header class="transparent">
+            <div id="logo">
+                <img src="{{ MEDIA_URL }}logo.svg" width=100% />
+            </div>
+		</header>
+	</div>
+
+		<center><h1>Signed Up Successfully</h1>
+    <a href="{% url 'login' %}">Go to Login</a></center>

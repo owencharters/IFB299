@@ -1,0 +1,95 @@
+table {
+    border-collapse: collapse;
+    border-color: #CCC;
+    border: 1px solid #DDD;
+	width: 100%;
+}
+
+table,
+table +  ul.pagination {
+    font: normal 11px/14px 'Lucida Grande', Helvetica, Verdana, Arial, sans-serif;
+}
+
+table a:link,
+table a:visited,
+table + ul.pagination > li > a {
+    color: #5B80B2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table a:hover {
+    color: #036;
+}
+
+table td,
+table th {
+    padding: px;
+    line-height: 20px;
+    border-bottom: 1px solid #EEE;
+    border-left: 1px solid #DDD;
+    text-align: left;
+	width: 50%;
+}
+
+table thead th:first-child,
+table thead td:first-child {
+    border-left: none !important;
+}
+
+table thead th,
+table thead td {
+    background: #FCFCFC url(../img/header-bg.png) left bottom repeat-x;
+    border-bottom: 1px solid #DDD;
+    padding: 2px 5px;
+    font-size: 11px;
+    vertical-align: middle;
+    color: #666;
+}
+
+table thead th > a:link,
+table thead th > a:visited {
+    color: #666;
+}
+
+table. thead th.orderable > a {
+    padding-right: 20px;
+    background: url(../img/arrow-inactive-up.png) right center no-repeat;
+}
+table thead th.orderable.asc > a {
+    background-image: url(../img/arrow-active-up.png);
+}
+table thead th.orderable.desc > a {
+    background-image: url(../img/arrow-active-down.png);
+}
+
+table tr.odd {
+    background-color: #EDF3FE;
+}
+
+table tr.even {
+    background-color: white;
+}
+
+table + ul.pagination {
+    background: white url(../img/pagination-bg.gif) left 180% repeat-x;
+    overflow: auto;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid #DDD;
+    list-style: none;
+}
+
+table + ul.pagination > li {
+    float: left;
+    line-height: 22px;
+    margin-left: 10px;
+}
+
+table + ul.pagination > li:first-child {
+    margin-left: 0;
+}
+
+div.table-container {
+    display: inline-block;
+}
