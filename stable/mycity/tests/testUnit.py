@@ -4,6 +4,7 @@ from mycity.views import *
 
 class SummaryTests(TestCase):
 	# Handling of summary/[button url] testing
+	fixtures = ['tests']
 
 	def setUp(self):
 		self.factory = RequestFactory()
