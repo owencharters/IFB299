@@ -165,7 +165,7 @@ header1 {
 	position:absolute;
 	right:15px;
 	top:260px;
-    width: 65%;
+    width: 57%;
 	bottom:50px;
     background-color: skyblue;
     border: 2px solid black;
@@ -236,8 +236,20 @@ footer{
 	height: 40px;
 	position:absolute;
 	top:250px;
-	left:40%;
+	right:0px;
 	background-color:#00BFFF;
+	border-radius:15px;
+	border:0px;
+	color:white;
+	font-size:16px;
+}
+.button_password{
+	width:420px;
+	height: 120px;
+	position:absolute;
+	top:250px;
+	left:95%;
+	background-color:gray;
 	border-radius:15px;
 	border:0px;
 	color:white;
