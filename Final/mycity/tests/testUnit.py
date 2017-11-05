@@ -1,9 +1,11 @@
 from django.test import TestCase
 from django.test.client import RequestFactory
-from mycity.views import * 
+from mycity.views import *
+from django.http import HttpResponseRedirect
 
 class SummaryTests(TestCase):
 	# Handling of summary/[button url] testing
+	fixtures = ['tests']
 
 	def setUp(self):
 		self.factory = RequestFactory()
@@ -111,15 +113,15 @@ class WebpageTests(TestCase):
 
 		self.assertEqual(response.status_code, 200)
 
-	def test_registration(self):
-		request = self.factory.get('registration')
-		response = register(request)
+	def test_signup(self):
+		request = self.factory.get('register')
+		response = signup(request)
 
 		self.assertEqual(response.status_code, 200)
-
-	def test_profile(self):
-		request = self.factory.get('profile')
-		response = profile(request)
+		
+	def test_signup(self):
+		request = self.factory.get('')
+		response = login(request)
 
 		self.assertEqual(response.status_code, 200)
 
