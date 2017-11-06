@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.test.client import RequestFactory
 from mycity.views import *
+from mycity.models import *
 from django.http import HttpResponseRedirect
 
 class SummaryTests(TestCase):
@@ -138,3 +139,70 @@ class RedirectTests(TestCase):
 	def test_baseRedirect(self):
 		response = HttpResponseRedirect('')
 		self.assertEqual(response.status_code, 302)
+
+class DatabaseTests(TestCase):
+	# Test that database is populated appropriately
+	fixtures = ['tests']
+
+	def test_libraries(self):
+		tableInfo = Libraries.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Chermside Library")
+
+	def test_colleges(self):
+		tableInfo = Colleges.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Queensland University of Technology")
+
+	def test_industries(self):
+		tableInfo = Industries.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Rugs a Million")
+
+	def test_parks(self):
+		tableInfo = Parks.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "New Farm Park")
+
+	def test_hotels(self):
+		tableInfo = Hotels.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Royal Albert")
+
+	def test_museums(self):
+		tableInfo = Museums.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Gallery of Modern Art")
+
+	def test_zoos(self):
+		tableInfo = Zoos.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Alma Park Zoo")
+
+	def test_malls(self):
+		tableInfo = Malls.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "Queen St Mall")
+
+	def test_restaurants(self):
+		tableInfo = Restaurants.objects.all()
+		individualInfo = tableInfo[:1].get()
+		name = str(individualInfo)
+
+		self.assertEqual(name, "McDonalds Albion")
